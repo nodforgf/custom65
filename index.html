@@ -1224,12 +1224,7 @@
             experienceStarted = true;
             experienceStartMs = performance.now();
             startOverlay.classList.add('hidden');
-            // เพลงถูกเปิดแล้วตอนกดหัวใจครบ — ลองเปิดอีกครั้งเผื่อกรณีที่ยังไม่ได้เล่น
-            const bgMusic = document.getElementById('backgroundMusic');
-            if (bgMusic && bgMusic.paused) {
-                bgMusic.volume = 0.5;
-                bgMusic.play().catch(() => {});
-            }
+            // เพลงถูกสั่งเล่นแล้วตอนกดหัวใจครบ — ไม่ต้องเล่นซ้ำที่นี่
             window.dispatchEvent(new CustomEvent('experienceStarted'));
         };
 
